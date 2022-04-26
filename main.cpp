@@ -3,22 +3,87 @@
 
 using namespace std;
 
+#include "nisza.h"
+#include "osobniki.h"
+#include "sasiedztwo.h"
+
 int main()
 {
-  Kwadrat kwadrat("Kwadrek",4);
-  Prostokat prostokat("Prostak",2,4);
+    Nisza nisza;
+    nisza.przyjmijLokatora(new Bakteria());
 
-  Prostokat * wskaznikDoProstokat;
+    cout << "Kto w niszy: "
+         << nisza.ktoTuMieszka() << endl;
+    cout << "Czy żywy: "
+         << nisza.lokatorZywy() << endl;
 
-  wskaznikDoProstokat = &prostokat;
+    Sasiedztwo sasiedztwo;
+    sasiedztwo.okreslSasiada(P,GLON);
+    sasiedztwo.okreslSasiada(PG,GRZYB);
+    sasiedztwo.okreslSasiada(G,GRZYB);
+    sasiedztwo.okreslSasiada(LG,GLON);
+    sasiedztwo.okreslSasiada(L,BAKTERIA);
+    sasiedztwo.okreslSasiada(LD,BAKTERIA);
+    sasiedztwo.okreslSasiada(D,GLON);
+    sasiedztwo.okreslSasiada(PD,PUSTKA);
 
-  cout << wskaznikDoProstokat->doTekstu() << endl << endl;
+    ZamiarMieszkanca zamiar =
+            nisza.aktywujLokatora(sasiedztwo);
 
-  wskaznikDoProstokat = &kwadrat;
-  cout << wskaznikDoProstokat->doTekstu()<< endl << endl;
+    cout << "Akjca: " << zamiar.akcja << " gdzie: "
+         << zamiar.gdzie << endl;
 
-  return 0;
+    cout << endl;
+    return 0;
 }
+//static Nisza n1, n2, n3;
+//static char sep = UstawieniaSymulacji::
+//        pobierzUstawienia().znakSeparator;
+
+//void wyswietlNisze()
+//{
+//    cout << n1.jakiSymbol() << sep
+//         << n2.jakiSymbol() << sep
+//         << n3.jakiSymbol() << endl;
+//}
+
+//int main()
+//{
+//    cout << "Puste nisze: ";
+//    wyswietlNisze();
+
+//    cout << "Lokowanie mieszkańców: ";
+//    n1.przyjmijLokatora(new Glon());
+//    n3.przyjmijLokatora(new Grzyb());
+//    wyswietlNisze();
+
+//    cout << "Przesuwanie lokatorów: ";
+//    n2 = n1;
+//    wyswietlNisze();
+
+//    cout << "Przesuwanie lokatorów:";
+//    n3 = n2;
+//    wyswietlNisze();
+
+//    cout << endl;
+//    return 0;
+//}
+//int main()
+//{
+//  Kwadrat kwadrat("Kwadrek",4);
+//  Prostokat prostokat("Prostak",2,4);
+
+//  Prostokat * wskaznikDoProstokat;
+
+//  wskaznikDoProstokat = &prostokat;
+
+//  cout << wskaznikDoProstokat->doTekstu() << endl << endl;
+
+//  wskaznikDoProstokat = &kwadrat;
+//  cout << wskaznikDoProstokat->doTekstu()<< endl << endl;
+
+//  return 0;
+//}
 
 //int main()
 //{
