@@ -15,6 +15,7 @@ protected:
     void obliczPole();
 
 public:
+    Prostokat & operator++(int);
     Prostokat(string n="?", double a=1, double b=2);
     virtual ~Prostokat();
     bool czyPoprawny();
@@ -22,9 +23,15 @@ public:
     double podajPole();
     double podajObwod();
     bool zmienBoki(double a, double b);
+    bool operator!() {return czyPoprawny();}
 
     virtual std::string doTekstu();
 };
 
+std::ostream& operator<<(std::ostream & strumien,
+ Prostokat & prostokat);
+
+std::istream& operator>>(std::istream & strumien,
+ Prostokat & prostokat);
 
 #endif // ZLAB03_H

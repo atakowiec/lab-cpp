@@ -13,7 +13,8 @@ SOURCES += \
         sasiedztwo.cpp \
         zlab02.cpp \
         zlab03.cpp \
-        zlab06.cpp
+        zlab06.cpp \
+        zlab10.cpp
 
 HEADERS += \
     generatorlosowy.h \
@@ -25,4 +26,5 @@ HEADERS += \
     ustawienia.h \
     zlab02.h \
     zlab03.h \
-    zlab06.h
+    zlab06.h \
+    zlab10.h

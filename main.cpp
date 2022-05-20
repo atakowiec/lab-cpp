@@ -9,31 +9,35 @@ using namespace std;
 
 int main()
 {
-    Nisza nisza;
-    nisza.przyjmijLokatora(new Bakteria());
+    Prostokat p0("Prostokat",2,3);
+    cout << "!p0=" <<!p0 << endl;
+    Prostokat p1("Prostokat",0,0);
+    cout << "!p1=" <<!p1 << endl;;
+//    Nisza nisza;
+//    nisza.przyjmijLokatora(new Bakteria());
 
-    cout << "Kto w niszy: "
-         << nisza.ktoTuMieszka() << endl;
-    cout << "Czy żywy: "
-         << nisza.lokatorZywy() << endl;
+//    cout << "Kto w niszy: "
+//         << nisza.ktoTuMieszka() << endl;
+//    cout << "Czy żywy: "
+//         << nisza.lokatorZywy() << endl;
 
-    Sasiedztwo sasiedztwo;
-    sasiedztwo.okreslSasiada(P,GLON);
-    sasiedztwo.okreslSasiada(PG,GRZYB);
-    sasiedztwo.okreslSasiada(G,GRZYB);
-    sasiedztwo.okreslSasiada(LG,GLON);
-    sasiedztwo.okreslSasiada(L,BAKTERIA);
-    sasiedztwo.okreslSasiada(LD,BAKTERIA);
-    sasiedztwo.okreslSasiada(D,GLON);
-    sasiedztwo.okreslSasiada(PD,PUSTKA);
+//    Sasiedztwo sasiedztwo;
+//    sasiedztwo.okreslSasiada(P,GLON);
+//    sasiedztwo.okreslSasiada(PG,GRZYB);
+//    sasiedztwo.okreslSasiada(G,GRZYB);
+//    sasiedztwo.okreslSasiada(LG,GLON);
+//    sasiedztwo.okreslSasiada(L,BAKTERIA);
+//    sasiedztwo.okreslSasiada(LD,BAKTERIA);
+//    sasiedztwo.okreslSasiada(D,GLON);
+//    sasiedztwo.okreslSasiada(PD,PUSTKA);
 
-    ZamiarMieszkanca zamiar =
-            nisza.aktywujLokatora(sasiedztwo);
+//    ZamiarMieszkanca zamiar =
+//            nisza.aktywujLokatora(sasiedztwo);
 
-    cout << "Akjca: " << zamiar.akcja << " gdzie: "
-         << zamiar.gdzie << endl;
+//    cout << "Akjca: " << zamiar.akcja << " gdzie: "
+//         << zamiar.gdzie << endl;
 
-    cout << endl;
+//    cout << endl;
     return 0;
 }
 //static Nisza n1, n2, n3;

@@ -86,16 +86,28 @@ std::string Prostokat::doTekstu()
     return napis;
 }
 
+ostream &operator<<(ostream &strumien, Prostokat &prostokat)
+{
+    strumien << prostokat.doTekstu();
+    return strumien;
+}
 
+std::istream& operator>>(std::istream & strumien,
+                         Prostokat & prostokat){
+    double a, b;
+    strumien >> a >> b;
+    prostokat.zmienBoki(a,b);
+    return strumien;
+}
 
-
-
-
-
-
-
-
-
+Prostokat & Prostokat::operator++(int)
+{
+    this->bok1 *=2;
+    this->bok2 *=2;
+    this->obliczPole();
+    this->obliczObwod();
+    return *this;
+}
 
 
 
