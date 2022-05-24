@@ -2,6 +2,7 @@
 #define NISZA_H
 #include "sasiedztwo.h"
 #include "mieszkaniec.h"
+#include "srodowisko.h"
 
 class Nisza
 {
@@ -36,7 +37,7 @@ public:
     }
 
 private:
-
+    friend void Srodowisko::wykonajAkcje(unsigned int wiersz, unsigned int kolumna);
     Mieszkaniec * wypuscPotomka() {
         return lokator->dajPotomka();
     }

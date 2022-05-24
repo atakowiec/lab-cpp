@@ -11,6 +11,7 @@ SOURCES += \
         organizm.cpp \
         osobniki.cpp \
         sasiedztwo.cpp \
+        srodowisko.cpp \
         zlab02.cpp \
         zlab03.cpp \
         zlab06.cpp \
@@ -23,6 +24,7 @@ HEADERS += \
     organizm.h \
     osobniki.h \
     sasiedztwo.h \
+    srodowisko.h \
     ustawienia.h \
     zlab02.h \
     zlab03.h \

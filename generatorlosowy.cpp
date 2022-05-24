@@ -1,5 +1,6 @@
 #include "generatorlosowy.h"
 #include <random>
+#include <algorithm>
 
 std::random_device GeneratorLosowy::device;
 
@@ -33,3 +34,18 @@ int GeneratorLosowy::losujOdZeraDo(int max) {
 
     return dist(GeneratorLosowy::device);
 }
+
+WektorIndeksow2D GeneratorLosowy::indeksyLosowe(unsigned int wiersze, unsigned int kolumny)
+{
+    WektorIndeksow2D indeksy;
+
+    for(unsigned int w=0; w<wiersze; w++)
+        for(unsigned int k=0; k<kolumny; k++)
+            indeksy.push_back(Indeks2D(w,k));
+
+    std::random_shuffle(indeksy.begin(), indeksy.end(), GeneratorLosowy::losujOdZeraDo);
+
+    return indeksy;
+}
+
+
