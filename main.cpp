@@ -1,72 +1,75 @@
-#include <iostream>
-#include <zlab06.h>
-
-using namespace std;
-
 #include "nisza.h"
 #include "osobniki.h"
 #include "sasiedztwo.h"
-#include "generatorlosowy.h"
+#include <fstream>
+#include <iostream>
 
-int main()
-{
-    while(true) {
-        Srodowisko ekoSystem(80, 180);
+using namespace std;
+int main() {
+    Srodowisko ekoSystem
+            =Srodowisko::czytajZPliku("start.txt");
 
-        for(int i=0; i<10000; i++) {
-            int y = GeneratorLosowy::losujOdZeraDo(180);
-            int x = GeneratorLosowy::losujOdZeraDo(80);
-            int wybor = GeneratorLosowy::losujOdZeraDo(4);
-            switch (wybor) {
-            case 1:
-                ekoSystem.lokuj(new Glon(),x,y);
-            break;
-            case 2:
-                ekoSystem.lokuj(new Grzyb(),x,y);
-            break;
-            case 0:
-            case 3:
-            case 4:
-                ekoSystem.lokuj(new Bakteria(),x,y);
-            break;
-            }
-        }
+    ofstream plikWynikowy("symulacja.txt");
+    if(!plikWynikowy.is_open()) return 1;
+    string stanSymulacji;
 
-        ekoSystem.lokuj(new Glon(),0,10);
-        ekoSystem.lokuj(new Glon(),1,10);
-        ekoSystem.lokuj(new Glon(),1,13);
-        ekoSystem.lokuj(new Glon(),3,10);
-        ekoSystem.lokuj(new Grzyb(),1,11);
-        ekoSystem.lokuj(new Grzyb(),0,0);
-        ekoSystem.lokuj(new Grzyb(),10,10);
-        ekoSystem.lokuj(new Bakteria(),3,3);
-        ekoSystem.lokuj(new Bakteria(),2,6);
+    unsigned long i = 0;
 
-        unsigned long i = 0;
+    do{
+        system("clear");
+        cout << "Krok symulacji: " << i << endl;
+        plikWynikowy << "Krok symulacji: " << i << endl;
+        stanSymulacji = ekoSystem.doTekstu();
 
-        do{
-            system("clear");
-            cout << "Krok symulacji: " << i << endl;
-            cout << endl << ekoSystem << endl;
-            cin.ignore(1);
-            ekoSystem++;
-            i++;
-        } while(i < 200 && !ekoSystem);
+        cout << endl << stanSymulacji << endl;
+        plikWynikowy << stanSymulacji << endl;
+        cin.ignore(1);
+        ekoSystem++;
+        i++;
+    } while(i < 2040 && !ekoSystem);
 
-        cout << endl;
+    cout << endl;
 
-    }
+    plikWynikowy.close();
     return 0;
 }
 
+//int main()
+//{
+//    Srodowisko ekoSystem(8,12);
+
+//    ekoSystem.lokuj(new Glon(),0,10);
+//    ekoSystem.lokuj(new Glon(),1,10);
+//    ekoSystem.lokuj(new Glon(),1,13);
+//    ekoSystem.lokuj(new Glon(),3,10);
+//    ekoSystem.lokuj(new Grzyb(),1,11);
+//    ekoSystem.lokuj(new Grzyb(),0,0);
+//    ekoSystem.lokuj(new Bakteria(),3,3);
+//    ekoSystem.lokuj(new Bakteria(),2,6);
+
+//    ofstream plikWynikowy("symulacja.txt");
 
 
+//    if(!plikWynikowy.is_open()) return 1;
+//    string stanSymulacji;
 
+//    unsigned long i = 0;
 
+//    do{
+//        system("clear");
+//        cout << "Krok symulacji: " << i << endl;
+//        plikWynikowy << "Krok symulacji: " << i << endl;
+//        stanSymulacji = ekoSystem.doTekstu();
 
+//        cout << endl << stanSymulacji << endl;
+//        plikWynikowy << stanSymulacji << endl;
+//        cin.ignore(1);
+//        ekoSystem++;
+//        i++;
+//    } while(i < 200 && !ekoSystem);
 
+//    cout << endl;
 
-
-
-
-
+//    plikWynikowy.close();
+//    return 0;
+//}

@@ -39,6 +39,8 @@ public:
     bool operator!() { return !martwy(); }
 
     std::string doTekstu() const;
+
+    static Srodowisko czytajZPliku(std::string nazwaPliku);
 };
 
 std::ostream & operator<<(std::ostream & strumien, const Srodowisko & srodowisko);

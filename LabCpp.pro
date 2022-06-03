@@ -15,7 +15,8 @@ SOURCES += \
         zlab02.cpp \
         zlab03.cpp \
         zlab06.cpp \
-        zlab10.cpp
+        zlab10.cpp \
+        zlab12.cpp
 
 HEADERS += \
     generatorlosowy.h \
@@ -29,4 +30,7 @@ HEADERS += \
     zlab02.h \
     zlab03.h \
     zlab06.h \
-    zlab10.h
+    zlab10.h \
+    zlab12.h
+
+DISTFILES +=
